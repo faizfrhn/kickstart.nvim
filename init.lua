@@ -205,3 +205,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 require 'config.lazy'
+--
+-- Quick shortcut to launch tmux-sessionizer
+vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'Launch tmux-sessionizer' })
+
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
