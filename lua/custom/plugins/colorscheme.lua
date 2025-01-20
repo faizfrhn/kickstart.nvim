@@ -11,7 +11,6 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
       vim.cmd.colorscheme 'penumbra'
 
       -- You can configure highlights by doing something like:
@@ -19,6 +18,14 @@ return {
       vim.cmd.hi 'LspReferenceText guibg=#414858 guifg=none'
       vim.cmd.hi 'LspReferenceRead guibg=#414858 guifg=none'
       vim.cmd.hi 'LspReferenceWrite guibg=#414858 guifg=none'
+    end,
+  },
+  {
+    'folke/tokyonight.nvim',
+    priority = 1000,
+
+    init = function()
+      -- vim.cmd.colorscheme 'tokyonight-moon'
     end,
   },
 }
