@@ -75,7 +75,21 @@ return {
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Grep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Document Diagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search Resume' })
-      vim.keymap.set('n', '<leader><leader>', builtin.find_files, { desc = '[ ] Find Files' })
+      vim.keymap.set('n', '<leader><leader>', function()
+        builtin.buffers {
+          sort_lastused = true,
+          prompt_title = 'Recent Buffers',
+          attach_mappings = function(_, map)
+            map({ 'i' }, '<C-x>', function(_prompt_bufnr)
+              require('telescope.actions').delete_buffer(_prompt_bufnr)
+            end)
+
+            -- needs to return true if you want to map default_mappings and
+            -- false if not
+            return true
+          end,
+        }
+      end, { desc = '[ ] Find Buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -93,7 +107,7 @@ return {
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
         }
-      end, { desc = '[S]earch [/] in Open Files' })
+      end, { desc = 'Search [/] in Open Files' })
 
       -- NOTE: [F]ind section
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
@@ -120,7 +134,13 @@ return {
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = 'Find Neovim Config' })
 
-      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find Buffers' })
+      vim.keymap.set('n', '<leader>fl', function()
+        builtin.find_files {
+          cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy'),
+        }
+      end, { desc = 'Find Lazy Files' })
+
+      vim.keymap.set('n', '<leader>fb', '<leader><leader>', { remap = true, desc = 'Find Buffers' })
     end,
   },
 }
