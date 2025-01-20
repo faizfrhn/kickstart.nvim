@@ -141,6 +141,12 @@ return {
       end, { desc = 'Find Lazy Files' })
 
       vim.keymap.set('n', '<leader>fb', '<leader><Tab>', { remap = true, desc = 'Find Buffers' })
+
+      vim.keymap.set('n', '<leader>uc', function()
+        builtin.colorscheme {
+          enable_preview = true,
+        }
+      end, { desc = 'Colorscheme with Preview' })
     end,
   },
 }

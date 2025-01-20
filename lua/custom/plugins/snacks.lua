@@ -6,6 +6,23 @@ return {
     ---@type snacks.Config
     opts = {
       toggle = { enabled = true },
+      notifier = { enabled = true, timeout = 3000 },
+    },
+    keys = {
+      {
+        '<leader>u!',
+        function()
+          Snacks.notifier.show_history()
+        end,
+        desc = 'Notification History',
+      },
+      {
+        '<leader>ud',
+        function()
+          Snacks.notifier.hide()
+        end,
+        desc = 'Dismiss All Notifications',
+      },
     },
     init = function()
       vim.api.nvim_create_autocmd('User', {

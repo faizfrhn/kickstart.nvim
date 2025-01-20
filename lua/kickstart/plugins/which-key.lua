@@ -60,6 +60,11 @@ return {
             return require('which-key.extras').expand.win()
           end,
         },
+        {
+          '<leader>u',
+          group = 'Utils',
+          icon = { icon = '󰙵 ' },
+        },
       },
 
       win = {
