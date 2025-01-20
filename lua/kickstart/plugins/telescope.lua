@@ -75,7 +75,7 @@ return {
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Grep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Document Diagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search Resume' })
-      vim.keymap.set('n', '<leader><leader>', function()
+      vim.keymap.set('n', '<leader><Tab>', function()
         builtin.buffers {
           sort_lastused = true,
           prompt_title = 'Recent Buffers',
@@ -140,7 +140,7 @@ return {
         }
       end, { desc = 'Find Lazy Files' })
 
-      vim.keymap.set('n', '<leader>fb', '<leader><leader>', { remap = true, desc = 'Find Buffers' })
+      vim.keymap.set('n', '<leader>fb', '<leader><Tab>', { remap = true, desc = 'Find Buffers' })
     end,
   },
 }
