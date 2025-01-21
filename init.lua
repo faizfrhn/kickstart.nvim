@@ -173,6 +173,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 require 'config.lazy'
+-- Keymap to quickly open Lazy
+vim.keymap.set('n', '<leader>ul', '<cmd>Lazy<CR>', { desc = 'Lazy' })
 --
 -- Quick shortcut to launch tmux-sessionizer
 vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'Launch tmux-sessionizer' })
