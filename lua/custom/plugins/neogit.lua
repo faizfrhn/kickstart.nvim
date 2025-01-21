@@ -11,16 +11,19 @@ return {
     },
     cmd = 'Neogit',
     init = function()
-      require('which-key').add {
-        {
-          '<leader>un',
-          function()
-            require('neogit').open()
-          end,
-          desc = 'Neogit',
-          icon = { icon = '󰊢', color = 'orange' },
-        },
-      }
+      local has_wk, wk = pcall(require, 'which-key')
+      if has_wk then
+        wk.add {
+          {
+            '<leader>un',
+            function()
+              require('neogit').open()
+            end,
+            desc = 'Neogit',
+            icon = { icon = '󰊢', color = 'orange' },
+          },
+        }
+      end
     end,
   },
 }
