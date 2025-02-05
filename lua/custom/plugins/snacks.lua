@@ -6,22 +6,14 @@ return {
     opts = {
       toggle = { enabled = true },
       notifier = { enabled = true, timeout = 3000 },
+      picker = { enabled = true }
     },
     keys = {
-      {
-        '<leader>u!',
-        function()
-          Snacks.notifier.show_history()
-        end,
-        desc = 'Notification History',
-      },
-      {
-        '<leader>ud',
-        function()
-          Snacks.notifier.hide()
-        end,
-        desc = 'Dismiss All Notifications',
-      },
+      -- notifier
+      { '<leader>u!', function() Snacks.notifier.show_history() end, desc = 'Notification History' },
+      { '<leader>ud', function() Snacks.notifier.hide() end, desc = 'Dismiss All Notifications' },
+      -- explorer
+      { "\\", function() Snacks.picker.explorer() end, desc = "Explorer" },
     },
     init = function()
       vim.api.nvim_create_autocmd('User', {
