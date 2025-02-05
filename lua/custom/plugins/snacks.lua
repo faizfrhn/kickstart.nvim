@@ -6,7 +6,21 @@ return {
     opts = {
       toggle = { enabled = true },
       notifier = { enabled = true, timeout = 3000 },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        win = {
+          input = {
+            -- stylua: ignore
+            keys = {
+              -- swap keymaps for scrolling preview & list 
+              ["<c-u>"] = { "preview_scroll_up", mode = { "i", "n" } },
+              ["<c-d>"] = { "preview_scroll_down", mode = { "i", "n" } },
+              ["<c-b>"] = { "list_scroll_up", mode = { "i", "n" } },
+              ["<c-f>"] = { "list_scroll_down", mode = { "i", "n" } },
+            },
+          },
+        },
+      },
     },
     keys = {},
     init = function()
