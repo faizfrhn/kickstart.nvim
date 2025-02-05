@@ -68,85 +68,85 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>s?', builtin.help_tags, { desc = 'Help [?]' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Keymaps' })
-      vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = 'Telescope' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Current Word' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Grep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Document Diagnostics' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search Resume' })
-      vim.keymap.set('n', '<leader><Tab>', function()
-        builtin.buffers {
-          sort_lastused = true,
-          prompt_title = 'Recent Buffers',
-          attach_mappings = function(_, map)
-            map({ 'i' }, '<C-x>', function(_prompt_bufnr)
-              require('telescope.actions').delete_buffer(_prompt_bufnr)
-            end)
-
-            -- needs to return true if you want to map default_mappings and
-            -- false if not
-            return true
-          end,
-        }
-      end, { desc = '[ ] Find Buffers' })
+      -- vim.keymap.set('n', '<leader>s?', builtin.help_tags, { desc = 'Help [?]' })
+      -- vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = 'Keymaps' })
+      -- vim.keymap.set('n', '<leader>st', builtin.builtin, { desc = 'Telescope' })
+      -- vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = 'Current Word' })
+      -- vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = 'Grep' })
+      -- vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = 'Document Diagnostics' })
+      -- vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search Resume' })
+      -- vim.keymap.set('n', '<leader><Tab>', function()
+      --   builtin.buffers {
+      --     sort_lastused = true,
+      --     prompt_title = 'Recent Buffers',
+      --     attach_mappings = function(_, map)
+      --       map({ 'i' }, '<C-x>', function(_prompt_bufnr)
+      --         require('telescope.actions').delete_buffer(_prompt_bufnr)
+      --       end)
+      --
+      --       -- needs to return true if you want to map default_mappings and
+      --       -- false if not
+      --       return true
+      --     end,
+      --   }
+      -- end, { desc = '[ ] Find Buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
-        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end, { desc = '[/] Fuzzily search in current buffer' })
+      -- vim.keymap.set('n', '<leader>/', function()
+      --   -- You can pass additional configuration to Telescope to change the theme, layout, etc.
+      --   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      --     winblend = 10,
+      --     previewer = false,
+      --   })
+      -- end, { desc = '[/] Fuzzily search in current buffer' })
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      vim.keymap.set('n', '<leader>s/', function()
-        builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end, { desc = 'Search [/] in Open Files' })
+      -- vim.keymap.set('n', '<leader>s/', function()
+      --   builtin.live_grep {
+      --     grep_open_files = true,
+      --     prompt_title = 'Live Grep in Open Files',
+      --   }
+      -- end, { desc = 'Search [/] in Open Files' })
 
       -- NOTE: [F]ind section
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
-      vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find Recent' })
+      -- vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
+      -- vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Find Recent' })
 
       -- For when I want to search all files including hidden ones
-      vim.keymap.set('n', '<leader>fh', function()
-        builtin.find_files {
-          hidden = true,
-          follow = true,
-        }
-      end, { desc = 'Find include Hidden Files' })
-
-      vim.keymap.set('n', '<leader>fa', function()
-        builtin.find_files {
-          hidden = true,
-          no_ignore = true,
-          follow = true,
-        }
-      end, { desc = 'Find All Files' })
+      -- vim.keymap.set('n', '<leader>fh', function()
+      --   builtin.find_files {
+      --     hidden = true,
+      --     follow = true,
+      --   }
+      -- end, { desc = 'Find include Hidden Files' })
+      --
+      -- vim.keymap.set('n', '<leader>fa', function()
+      --   builtin.find_files {
+      --     hidden = true,
+      --     no_ignore = true,
+      --     follow = true,
+      --   }
+      -- end, { desc = 'Find All Files' })
 
       -- Shortcut for searching your Neovim configuration files
-      vim.keymap.set('n', '<leader>fn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = 'Find Neovim Config' })
+      -- vim.keymap.set('n', '<leader>fn', function()
+      --   builtin.find_files { cwd = vim.fn.stdpath 'config' }
+      -- end, { desc = 'Find Neovim Config' })
 
-      vim.keymap.set('n', '<leader>fl', function()
-        builtin.find_files {
-          cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy'),
-        }
-      end, { desc = 'Find Lazy Files' })
+      -- vim.keymap.set('n', '<leader>fl', function()
+      --   builtin.find_files {
+      --     cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy'),
+      --   }
+      -- end, { desc = 'Find Lazy Files' })
 
-      vim.keymap.set('n', '<leader>fb', '<leader><Tab>', { remap = true, desc = 'Find Buffers' })
+      -- vim.keymap.set('n', '<leader>fb', '<leader><Tab>', { remap = true, desc = 'Find Buffers' })
 
-      vim.keymap.set('n', '<leader>uc', function()
-        builtin.colorscheme {
-          enable_preview = true,
-        }
-      end, { desc = 'Colorscheme with Preview' })
+      -- vim.keymap.set('n', '<leader>uc', function()
+      --   builtin.colorscheme {
+      --     enable_preview = true,
+      --   }
+      -- end, { desc = 'Colorscheme with Preview' })
     end,
   },
 }
