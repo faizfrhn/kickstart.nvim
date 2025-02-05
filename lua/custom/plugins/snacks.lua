@@ -73,11 +73,11 @@ return {
           { "<leader>fh", function() Snacks.picker.files({ hidden = true, follow = true }) end, desc = "Find include Hidden Files" },
           { "<leader>fa", function() Snacks.picker.files({ hidden = true, ignored = true, follow = true }) end, desc = "Find All Files" },
           { "<leader>fr", function() Snacks.picker.recent() end, desc = "Find Recent" },
-          { "<leader>fb", function() Snacks.picker.buffers({layout = {preset = 'select', preview = 'main'}}) end, desc = "Find Buffers" },
+          { "<leader>fb", function() Snacks.picker.buffers({layout = {preset = 'vertical', preview = 'main'}}) end, desc = "Find Buffers" },
           { "<leader>fn", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Neovim Config" },
           { "<leader>fl", function() Snacks.picker.files({ cwd = vim.fs.joinpath(vim.fn.stdpath 'data', 'lazy') }) end, desc = "Find Lazy Files" },
           -- buffers
-          { "<leader><Tab>", function() Snacks.picker.buffers({layout = {preset = 'select', preview = 'main'}}) end, desc = "[ ] Find Buffers" },
+          { "<leader><Tab>", function() Snacks.picker.buffers({layout = {preset = 'vertical', preview = 'main'}}) end, desc = "[ ] Find Buffers" },
           -- grep
           { "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep", icon = { icon = '' } },
           { "<leader>sG", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers", icon = { icon = '' } },
@@ -96,6 +96,7 @@ return {
           -- Utils
           { "<leader>uc", function() Snacks.picker.colorschemes() end, desc = "Colorschemes", icon = { icon = '' } },
           { "<leader>ui", function() Snacks.picker.icons() end, desc = "Icons", icon = { icon = '󰒕' } },
+          { "<leader>up", function() Snacks.picker.pickers() end, desc = "Snacks.pickers" },
         }
       end
     end,
