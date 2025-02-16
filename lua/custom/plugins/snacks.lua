@@ -21,6 +21,7 @@ return {
           },
         },
       },
+      image = { enabled = true },
     },
     keys = {},
     init = function()
