@@ -10,16 +10,20 @@ return {
       -- 'ibhagwan/fzf-lua', -- optional
     },
     cmd = 'Neogit',
-    config = true,
-    keys = {
-      {
-        '<leader>n',
-        function()
-          require('neogit').open()
-        end,
-        mode = '',
-        desc = '[N]eogit',
-      },
-    },
+    init = function()
+      local has_wk, wk = pcall(require, 'which-key')
+      if has_wk then
+        wk.add {
+          {
+            '<leader>un',
+            function()
+              require('neogit').open()
+            end,
+            desc = 'Neogit',
+            icon = { icon = '󰊢', color = 'orange' },
+          },
+        }
+      end
+    end,
   },
 }
