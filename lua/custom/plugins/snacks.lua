@@ -21,7 +21,7 @@ return {
           },
         },
       },
-      image = { enabled = true },
+      image = { enabled = true, doc = { inline = false, float = true } },
     },
     keys = {},
     init = function()

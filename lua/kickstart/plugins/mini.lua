@@ -24,6 +24,8 @@ return {
       require('mini.move').setup()
 
       require('mini.icons').setup()
+
+      require('mini.splitjoin').setup()
     end,
     init = function()
       package.preload['nvim-web-devicons'] = function()

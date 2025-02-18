@@ -206,7 +206,8 @@ return {
           },
         },
         vtsls = {},
-        -- ruby_lsp = {},
+        intelephense = {},
+        ruby_lsp = {},
       }
 
       -- Ensure the servers and tools above are installed
