@@ -22,6 +22,7 @@ return {
         },
       },
       image = { enabled = true, doc = { inline = false, float = true } },
+      indent = { enabled = true },
     },
     keys = {},
     init = function()
