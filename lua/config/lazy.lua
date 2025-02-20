@@ -61,7 +61,9 @@ require('lazy').setup({
 
   require 'kickstart.plugins.conform',
 
-  require 'kickstart.plugins.nvim-cmp',
+  -- require 'kickstart.plugins.nvim-cmp',
+
+  require 'kickstart.plugins.blink-cmp',
 
   require 'kickstart.plugins.todo-comments',
 
