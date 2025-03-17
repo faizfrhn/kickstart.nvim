@@ -55,6 +55,7 @@ return {
                 state = true
               end
               vim.g.disable_autoformat = not state
+              vim.b.disable_autoformat = not state
             end,
           }):map '<leader>tF'
         end,
