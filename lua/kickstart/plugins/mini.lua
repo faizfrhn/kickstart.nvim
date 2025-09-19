@@ -1,6 +1,6 @@
 return {
   { -- Collection of various small independent plugins/modules
-    'echasnovski/mini.nvim',
+    'nvim-mini/mini.nvim',
     specs = {
       { 'nvim-tree/nvim-web-devicons', enabled = false, optional = true },
     },

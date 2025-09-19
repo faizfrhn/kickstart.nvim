@@ -44,6 +44,7 @@ return {
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
         eruby = { 'erb_format' },
         blade = { 'blade-formatter' },
+        php = { 'pint' },
       },
     },
   },
