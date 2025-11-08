@@ -20,6 +20,33 @@ return {
             },
           },
         },
+        preview = function(ctx)
+          -- Call default file preview first (this sets the default title)
+          require('snacks.picker.preview').file(ctx)
+
+          -- Set footer with relative directory path
+          local full_path = ctx.item.file or ctx.item._path
+          local dir_path = vim.fn.fnamemodify(full_path, ':h')
+          local relative_dir = vim.fn.fnamemodify(dir_path, ':.')
+
+          -- Always show relative path with ./ prefix
+          local footer_text
+          if relative_dir == '.' then
+            footer_text = ' Directory: ./ '
+          else
+            footer_text = ' Directory: ./' .. relative_dir .. '/ '
+          end
+
+          -- Set footer using the window's footer functionality
+          if ctx.preview.win and ctx.preview.win.opts then
+            ctx.preview.win.opts.footer = footer_text
+            ctx.preview.win.opts.footer_pos = 'left'
+            -- Update the window to reflect the footer change
+            if ctx.preview.win.update then
+              ctx.preview.win:update()
+            end
+          end
+        end,
       },
       image = { enabled = true, doc = { inline = false, float = true } },
       indent = { enabled = true },
@@ -70,7 +97,7 @@ return {
           { '<leader>u!', function() Snacks.notifier.show_history() end, desc = 'Notification History', icon = { icon = '󰝧' } },
           { '<leader>uX', function() Snacks.notifier.hide() end, desc = 'Dismiss All Notifications', icon = { icon = '󰎟' } },
           -- explorer
-          { "\\", function() Snacks.picker.explorer() end, desc = "File Explorer" },
+          { "\\", function() Snacks.picker.explorer({ layout = { layout = { position = "right" } }, }) end, desc = "File Explorer" },
           -- find
           { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
           { "<leader>fh", function() Snacks.picker.files({ hidden = true, follow = true }) end, desc = "Find include Hidden Files" },

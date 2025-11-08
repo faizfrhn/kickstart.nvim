@@ -33,3 +33,16 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- Switch between buffers
 vim.keymap.set('n', '<leader><leader>', '<C-^>', { desc = 'Switch between buffers' })
+
+-- Yank file paths
+vim.keymap.set('n', '<leader>yf', function()
+  local path = vim.fn.expand '%:.'
+  vim.fn.setreg('+', path)
+  vim.notify(' Relative file path copied to clipboard: ' .. path)
+end, { desc = 'Yank relative file path' })
+
+vim.keymap.set('n', '<leader>yF', function()
+  local path = vim.fn.expand '%:p'
+  vim.fn.setreg('+', path)
+  vim.notify(' Full file path copied to clipboard: ' .. path)
+end, { desc = 'Yank full file path' })
