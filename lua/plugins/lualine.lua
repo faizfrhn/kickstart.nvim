@@ -1,7 +1,9 @@
-return {
-  'nvim-lualine/lualine.nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
-  opts = {
+vim.pack.add { 
+	github 'nvim-lualine/lualine.nvim',
+	github 'nvim-tree/nvim-web-devicons' 
+}
+
+require('lualine').setup {
     options = {
       section_separators = { left = '', right = '' },
       component_separators = { left = '', right = '' },
@@ -20,5 +22,5 @@ return {
         { 'location' },
       },
     },
-  },
 }
+
