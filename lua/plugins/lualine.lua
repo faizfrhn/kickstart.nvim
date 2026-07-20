@@ -1,26 +1,25 @@
-vim.pack.add { 
-	github 'nvim-lualine/lualine.nvim',
-	github 'nvim-tree/nvim-web-devicons' 
+vim.pack.add {
+  github 'nvim-lualine/lualine.nvim',
+  github 'nvim-tree/nvim-web-devicons',
 }
 
 require('lualine').setup {
-    options = {
-      section_separators = { left = '', right = '' },
-      component_separators = { left = '', right = '' },
+  options = {
+    section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+  },
+  sections = {
+    lualine_b = {
+      { 'branch', icon = '' },
     },
-    sections = {
-      lualine_b = {
-        { 'branch', icon = '' },
-      },
-      lualine_c = {
-        { 'diff', icon = { '' } },
-        { 'diagnostics' },
-        { 'filename', path = 1 },
-      },
-      lualine_z = {
-        { 'searchcount' },
-        { 'location' },
-      },
+    lualine_c = {
+      { 'diff', icon = { '' } },
+      { 'diagnostics' },
+      { 'filename', path = 1 },
     },
+    lualine_z = {
+      { 'searchcount' },
+      { 'location' },
+    },
+  },
 }
-

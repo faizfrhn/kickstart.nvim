@@ -17,14 +17,14 @@ require('blink.cmp').setup {
   },
   completion = {
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
-        menu = {
-          draw = {
-            columns = {
-              { 'kind_icon', 'label', 'label_description', gap = 1 },
-              { 'kind' },
-            },
+      menu = {
+        draw = {
+          columns = {
+            { 'kind_icon', 'label', 'label_description', gap = 1 },
+            { 'kind' },
           },
         },
+      },
   },
   sources = {
     default = { 'lsp', 'path', 'snippets' },
@@ -33,5 +33,3 @@ require('blink.cmp').setup {
   fuzzy = { implementation = 'lua' },
   signature = { enabled = true },
 }
-
--- vim: ts=2 sts=2 sw=2 et

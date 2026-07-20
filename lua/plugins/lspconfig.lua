@@ -17,11 +17,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
     -- Additional keymaps thru Snacks.picker
-  map('grr', Snacks.picker.lsp_references, '[G]oto [R]eferences')
-  map('gri', Snacks.picker.lsp_implementations, '[G]oto [I]mplementation')
-  map('grd', Snacks.picker.lsp_definitions, '[G]oto [D]efinition')
-  map('grt', Snacks.picker.lsp_type_definitions, '[G]oto [T]ype Definition')
-
+    map('grr', Snacks.picker.lsp_references, '[G]oto [R]eferences')
+    map('gri', Snacks.picker.lsp_implementations, '[G]oto [I]mplementation')
+    map('grd', Snacks.picker.lsp_definitions, '[G]oto [D]efinition')
+    map('grt', Snacks.picker.lsp_type_definitions, '[G]oto [T]ype Definition')
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client:supports_method('textDocument/documentHighlight', event.buf) then
@@ -84,17 +83,6 @@ vim.diagnostic.config {
 
 ---@type table<string, vim.lsp.Config>
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  --
-  -- Some languages (like typescript) have entire language plugins that can be useful:
-  --    https://github.com/pmizio/typescript-tools.nvim
-  --
-  -- But for many setups, the LSP (`ts_ls`) will work just fine
-  -- ts_ls = {},
-
   stylua = {}, -- Used to format Lua code
 
   -- Special Lua Config, as recommended by neovim help docs
@@ -130,11 +118,11 @@ local servers = {
       },
     },
   },
-          vtsls = {},
-        intelephense = {},
-        -- ruby_lsp = {},
-        rubocop = {},
-        gopls = {},
+  vtsls = {},
+  intelephense = {},
+  -- ruby_lsp = {},
+  rubocop = {},
+  gopls = {},
 }
 
 vim.pack.add {
@@ -161,5 +149,3 @@ for name, server in pairs(servers) do
   vim.lsp.config(name, server)
   vim.lsp.enable(name)
 end
-
--- vim: ts=2 sts=2 sw=2 et

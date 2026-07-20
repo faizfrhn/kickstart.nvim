@@ -19,15 +19,13 @@ require('conform').setup {
   },
   -- You can also specify external formatters in here.
   formatters_by_ft = {
-	          lua = { 'stylua' },
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
-        eruby = { 'erb_format' },
-        blade = { 'blade-formatter' },
-        php = { 'pint' },
+    lua = { 'stylua' },
+    -- You can use 'stop_after_first' to run the first available formatter from the list
+    -- javascript = { "prettierd", "prettier", stop_after_first = true },
+    eruby = { 'erb_format' },
+    blade = { 'blade-formatter' },
+    php = { 'pint' },
   },
 }
 
 vim.keymap.set({ 'n', 'v' }, '<leader>cf', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
-
--- vim: ts=2 sts=2 sw=2 et
