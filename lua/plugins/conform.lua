@@ -3,6 +3,8 @@ vim.pack.add { github 'stevearc/conform.nvim' }
 require('conform').setup {
   notify_on_error = false,
   format_on_save = function(bufnr)
+    -- Disable with a global or buffer-local variable
+    if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
     -- You can specify filetypes to autoformat on save here:
     local enabled_filetypes = {
       -- lua = true,

@@ -37,6 +37,7 @@ require 'plugins.mini'
 -- Additional plugins I use
 require 'plugins.snacks'
 require 'plugins.lualine'
+require 'plugins.neogit'
 
 -- LSP, treesitter stuffs
 require 'plugins.lspconfig'

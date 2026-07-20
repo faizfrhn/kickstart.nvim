@@ -49,6 +49,28 @@ require('snacks').setup {
   scratch = { enabled = true },
 }
 
+-- [[ Toggles ]]
+Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map '<leader>tL'
+Snacks.toggle.line_number():map '<leader>tl'
+Snacks.toggle.inlay_hints():map '<leader>th'
+Snacks.toggle({
+  name = 'Auto Format (Current Buffer)',
+  get = function() return not vim.b.disable_autoformat end,
+  set = function(state)
+    if state == nil then state = true end
+    vim.b.disable_autoformat = not state
+  end,
+}):map '<leader>tf'
+Snacks.toggle({
+  name = 'Auto Format (Global)',
+  get = function() return not vim.g.disable_autoformat end,
+  set = function(state)
+    if state == nil then state = true end
+    vim.g.disable_autoformat = not state
+    vim.b.disable_autoformat = not state
+  end,
+}):map '<leader>tF'
+
 -- [[ Keymapping w ICONS ]]
 -- Use wk.add because i want icons?
 local has_wk, wk = pcall(require, 'which-key')
@@ -91,25 +113,3 @@ if has_wk then
     { '<leader>us', function() Snacks.scratch() end, desc = 'Snacks.scratch', icon = { icon = '' } },
   }
 end
-
--- [[ Toggles ]]
-Snacks.toggle.option('relativenumber', { name = 'Relative Number' }):map '<leader>tL'
-Snacks.toggle.line_number():map '<leader>tl'
-Snacks.toggle.inlay_hints():map '<leader>th'
-Snacks.toggle({
-  name = 'Auto Format (Current Buffer)',
-  get = function() return not vim.b.disable_autoformat end,
-  set = function(state)
-    if state == nil then state = true end
-    vim.b.disable_autoformat = not state
-  end,
-}):map '<leader>tf'
-Snacks.toggle({
-  name = 'Auto Format (Global)',
-  get = function() return not vim.g.disable_autoformat end,
-  set = function(state)
-    if state == nil then state = true end
-    vim.g.disable_autoformat = not state
-    vim.b.disable_autoformat = not state
-  end,
-}):map '<leader>tF'
