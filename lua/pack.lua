@@ -38,6 +38,7 @@ require 'plugins.mini'
 require 'plugins.snacks'
 require 'plugins.lualine'
 require 'plugins.neogit'
+require 'plugins.render-markdown'
 
 -- LSP, treesitter stuffs
 require 'plugins.lspconfig'

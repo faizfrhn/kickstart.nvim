@@ -44,7 +44,10 @@ end, { desc = 'Yank full file path' })
 -- Quick shortcut to launch tmux-sessionizer
 vim.keymap.set('n', '<C-g>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'Launch tmux-sessionizer' })
 
--- -- Quick shortcut to launch tmux-sessionizer
--- vim.keymap.set('n', '<C-g>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'Launch tmux-sessionizer' })
+-- Quick shortcut to launch tmux-sessionizer
+vim.keymap.set('n', '<C-g>', '<cmd>silent !tmux neww tmux-sessionizer<CR>', { desc = 'Launch tmux-sessionizer' })
+
+-- Quick save and quit for all (normal ZZ does :x)
+vim.keymap.set('n', 'ZZ', '<cmd>xa<cr>', { desc = 'Save all and quit' })
 
 -- vim: ts=2 sts=2 sw=2 et

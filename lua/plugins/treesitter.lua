@@ -1,6 +1,20 @@
 vim.pack.add { { src = github 'nvim-treesitter/nvim-treesitter', version = 'main' } }
 
-local parsers = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'php' }
+local parsers = {
+  'bash',
+  'c',
+  'diff',
+  'html',
+  'lua',
+  'luadoc',
+  'markdown',
+  'markdown_inline',
+  'query',
+  'vim',
+  'vimdoc',
+  'php',
+  'yaml'
+}
 require('nvim-treesitter').install(parsers)
 
 ---@param buf integer
@@ -25,6 +39,8 @@ local function treesitter_try_attach(buf, language)
 end
 
 local available_parsers = require('nvim-treesitter').get_available()
+
+-- [[ Autocmd ]]
 vim.api.nvim_create_autocmd('FileType', {
   callback = function(args)
     local buf, filetype = args.buf, args.match
